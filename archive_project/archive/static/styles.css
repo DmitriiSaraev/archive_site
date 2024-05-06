@@ -70,3 +70,20 @@ footer {
     display: flex;
     margin-top: 20px;
 }
+
+
+.table_time {
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 90%
+}
+
+.table_time td, .table_time th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}

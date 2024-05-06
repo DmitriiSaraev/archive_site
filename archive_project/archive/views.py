@@ -11,11 +11,14 @@ def index(request):
     contacts = Contacts.objects.filter(name='Контакты').first()
     operating_mode = (OperatingMode.objects.filter(name='Режим работы').
                       order_by('number'))
+    reading_room = Post.objects.filter(type_post='reading_room').first()
+
 
     context['main_link'] = main_link
     context['main_post'] = main_post
     context['contacts'] = contacts
     context['operating_mode'] = operating_mode
+    context['reading_room'] = reading_room
 
 
 
