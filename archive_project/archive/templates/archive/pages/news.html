@@ -9,9 +9,17 @@
   {% for new in news %}
     <h3>{{ new.title }}</h3>
     <p>{{ new.text|linebreaks }}</p>
-    {{ new.images }}
 
+    {% if new.images.all %}
+      <div class="post-images">
+        {% for image in new.images.all %}
+          <div class="image-wrapper">
+            <img src="{{ image.image.url }}" alt="{{ image.name }}">
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <br>
   {% endfor %}
 {% endblock %}
 
-<img src="{% if new.image %}{{ new.image.url }}{% else %}{% static "img\no_img.png" %}{% endif %}">

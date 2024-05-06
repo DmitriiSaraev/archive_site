@@ -87,3 +87,14 @@ footer {
 h3 {
     text-align: center;
 }
+
+.post-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-wrapper {
+  margin-right: 10px; /* Отступ между изображениями по горизонтали */
+  margin-bottom: 10px; /* Отступ между изображениями по вертикали */
+}

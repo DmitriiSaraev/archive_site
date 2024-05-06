@@ -1,11 +1,11 @@
 {% load static %}
 <div id="header">
   <ul>
-    <li><a class="active" href="http://talica-arkhi-rf.1gb.ru/index.html">Главная</a>
+    <li><a class="active" href="{% url 'archive:index' %}">Главная</a>
     </li>
-    <li><a href="http://talica-arkhi-rf.1gb.ru/News.html">Новости архива</a>
+    <li><a href="{% url 'archive:news' %}">Новости архива</a>
     </li>
-    <li><a href="http://talica-arkhi-rf.1gb.ru/Ob_arhive.html">Об архиве</a>
+    <li><a href="{% url 'archive:about' %}">Об архиве</a>
     </li>
     <li><a href="http://talica-arkhi-rf.1gb.ru/Zaprosi.html">Запросы</a></li>
     <li><a

@@ -12,7 +12,7 @@ class Post(models.Model):
         ('article', 'Статьи'),
         ('exhibitions', 'Выставки'),
         ('reading_room', 'Читальный зал'),
-        ('requests_ls', 'запросы тематические'),
+        ('requests_t', 'запросы тематические'),
         ('requests_sp', 'запросы соц. пр.'),
         ('external_reference', 'внешние ссылки')
     ]
@@ -39,7 +39,7 @@ class Post(models.Model):
                                    verbose_name='Дата')
 
     class Meta:
-        ordering = ['-created']
+        ordering = ['created']
 
     def __str__(self):
         return f'Пост {self.name}, тип {self.type_post}'

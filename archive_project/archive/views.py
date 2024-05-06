@@ -13,7 +13,6 @@ def index(request):
                       order_by('number'))
     reading_room = Post.objects.filter(type_post='reading_room').first()
 
-
     context['main_link'] = main_link
     context['main_post'] = main_post
     context['contacts'] = contacts
@@ -27,12 +26,68 @@ def news(request):
     context = {}
 
     news = Post.objects.filter(type_post='news').select_related()
-    for new in news:
-        print(new)
-
     context['news'] = news
-    print(news)
-    new = news[0]
-    print(new.images)
 
     return render(request, 'archive/pages/news.html', context)
+
+
+def about(request):
+    context = {}
+
+    about_archive = Post.objects.filter(type_post='about_archive').first()
+    context['about_archive'] = about_archive
+
+    return render(request, 'archive/pages/about.html', context)
+
+
+def querys(request):
+    context = {}
+
+    querys_t = Post.objects.filter(type_post='requests_t').first()
+    querys_sp = Post.objects.filter(type_post='requests_sp').first()
+
+    context['querys_t'] = querys_t
+    context['querys_sp'] = querys_sp
+
+    return render(request, 'archive/pages/querys.html', context)
+
+
+def organizaziyam(request):
+    context = {}
+    mode = OperatingMode.objects.filter(name='Для источников')
+    links = Link.objects.filter(type_link='Для источников')
+
+    context['mode'] = mode
+    context['links'] = links
+
+    return render(request, 'archive/pages/organizaziyam.html', context)
+
+
+def kalendar(request):
+    context = {}
+
+    kalendars = Link.objects.filter(type_link='Календарь')
+
+    context['kalendars'] = kalendars
+
+    return render(request, 'archive/pages/kalendar.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

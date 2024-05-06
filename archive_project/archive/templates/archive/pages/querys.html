@@ -1,0 +1,25 @@
+{% extends 'archive/base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Запросы. МКУ ТГО "Управление архивами"</title>
+{% endblock %}
+
+{% block content %}
+  <h3>Здесь вы можете узнать на какие запросы можно подать заявку</h3>
+  <p><b>Прием заявок на запросы:</b> понедельник,
+    вторник с 8:00 до 17:00, перерыв с 12:00 до 12:48.</p>
+  <p><b>Выдача справок:</b> понедельник - четверг с 8:00 до 17:00,
+    пятница с 8:00 до 16:00, перерыв с 12:00 до 12:48</p>
+  <p><b>Прием заявок по электронной почте:</b> talica-arhiv@yandex.ru
+  </p>
+  <h6>{{ querys_t.title }}</h6>
+  <p>{{ querys_t.text|linebreaks }}</p>
+  <a>{{ querys_t.text_link }}</a>
+  <br>
+  <br>
+  <h6>{{ querys_sp.title }}</h6>
+  <p>{{ querys_sp.text|linebreaks }}</p>
+  <a>{{ querys_sp.text_link }}</a>
+
+{% endblock %}
