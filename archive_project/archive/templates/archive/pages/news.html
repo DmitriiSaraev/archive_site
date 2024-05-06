@@ -1,0 +1,17 @@
+{% extends 'archive/base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Новости МКУ ТГО "Управление архивами"</title>
+{% endblock %}
+
+{% block content %}
+  {% for new in news %}
+    <h3>{{ new.title }}</h3>
+    <p>{{ new.text|linebreaks }}</p>
+    {{ new.images }}
+
+  {% endfor %}
+{% endblock %}
+
+<img src="{% if new.image %}{{ new.image.url }}{% else %}{% static "img\no_img.png" %}{% endif %}">

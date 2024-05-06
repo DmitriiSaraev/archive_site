@@ -6,5 +6,6 @@ from archive import views
 app_name = 'archive'
 
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('news/', views.news, name='news')
 ]

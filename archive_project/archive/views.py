@@ -20,6 +20,19 @@ def index(request):
     context['operating_mode'] = operating_mode
     context['reading_room'] = reading_room
 
-
-
     return render(request, 'archive/pages/main.html', context)
+
+
+def news(request):
+    context = {}
+
+    news = Post.objects.filter(type_post='news').select_related()
+    for new in news:
+        print(new)
+
+    context['news'] = news
+    print(news)
+    new = news[0]
+    print(new.images)
+
+    return render(request, 'archive/pages/news.html', context)
