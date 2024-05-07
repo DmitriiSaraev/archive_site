@@ -1,4 +1,7 @@
 # archive_site
+# В разработке
+# Сайт для Муниципальной организации
+
 Установка Django
 >pip install django==4.2 
 >pip install pillow 
