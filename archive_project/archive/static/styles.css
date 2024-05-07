@@ -75,7 +75,7 @@ footer {
 .table_time {
     border-collapse: collapse;
     margin: 0 auto;
-    width: 90%
+    width: 95%
 }
 
 .table_time td, .table_time th {
@@ -97,4 +97,17 @@ h3 {
 .image-wrapper {
   margin-right: 10px; /* Отступ между изображениями по горизонтали */
   margin-bottom: 10px; /* Отступ между изображениями по вертикали */
+}
+
+.content-wrapper {
+  display: flex;
+}
+
+.image-container {
+  flex: 0 0 auto; /* Изображение не будет растягиваться */
+  margin-right: 20px; /* Отступ между изображением и текстом */
+}
+
+.text-container {
+  flex: 1; /* Текст будет растягиваться на всю доступную ширину */
 }

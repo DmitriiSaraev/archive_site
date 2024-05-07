@@ -73,6 +73,17 @@ def kalendar(request):
     return render(request, 'archive/pages/kalendar.html', context)
 
 
+def reading_room(request):
+    context = {}
+
+    reading_room = Post.objects.filter(type_post='reading_room').first()
+    books_list = ListBooks.objects.all()
+
+    context['reading_room'] = reading_room
+    context['books_list'] = books_list
+
+    return render(request, 'archive/pages/reading_room.html', context)
+
 
 
 

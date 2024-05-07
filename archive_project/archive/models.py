@@ -130,6 +130,9 @@ class ListBooks(models.Model):
     publishing = models.CharField(max_length=255,
                                   verbose_name='Издательство')
 
+    class Meta:
+        ordering = ['numb']
+
     def __str__(self):
         return f'Книга из чит. зала номер {self.numb}'
 
