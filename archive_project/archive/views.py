@@ -103,7 +103,29 @@ def articles(request):
     return render(request, 'archive/pages/articles.html', context)
 
 
+def docs(request):
+    context = {}
 
+    docs = Link.objects.filter(type_link='docs')
+
+    context['docs'] = docs
+
+    return render(request, 'archive/pages/docs.html', context)
+
+
+def contacts(request):
+    context = {}
+
+    main_post = Post.objects.filter(type_post='main_them').first()
+    contacts = Contacts.objects.filter(name='Контакты').first()
+    operating_mode = (OperatingMode.objects.filter(name='Режим работы').
+                      order_by('number'))
+
+    context['main_post'] = main_post
+    context['contacts'] = contacts
+    context['operating_mode'] = operating_mode
+
+    return render(request, 'archive/pages/contacts.html', context)
 
 
 

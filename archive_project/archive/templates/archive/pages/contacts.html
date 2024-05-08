@@ -1,0 +1,38 @@
+{% extends 'archive/base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Контакты. МКУ ТГО "Управление архивами"</title>
+{% endblock %}
+
+{% block content %}
+
+  <p>{{ contacts.address|safe }}</p>
+  <p>{{ contacts.boss|safe }}</p>
+  <p> Телефон: <b>{{ contacts.telephone }}</b></p>
+  <p> Адрес электронной почты: <b>{{ contacts.email }}</b></p>
+
+  <h3>Режим работы</h3>
+  <table class="table_time" >
+    <tbody>
+        {% for day_mode in operating_mode %}
+            <tr>
+                <td >{{ day_mode.name_day }}</td>
+                <td >{{ day_mode.start_time_morning }} - {{ day_mode.end_time_morning }}</td>
+                <td >{{ day_mode.start_time_lunch }} - {{ day_mode.end_time_lunch }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  <br>
+  <h6>{{ operating_mode.first.text }}</h6>
+  <br>
+
+  <h6>{{ reading_room.title }}</h6>
+  <p>{{ reading_room.text|linebreaksbr }}</p>
+
+
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A047fef9756abe47ec9ac6329171b0606380f4919f8d144cbbe756dc1117f3df6&amp;width=807&amp;height=504&amp;lang=ru_RU&amp;scroll=true"></script>
+
+{% endblock %}
+
