@@ -1,0 +1,23 @@
+{% extends 'archive/base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Статьи. Об МКУ ТГО "Управление архивами"</title>
+{% endblock %}
+
+{% block content %}
+  <div id="articles">
+    <h3>Статьи</h3>
+    {% for article in articles %}
+      <h3>{{ article.title }}</h3>
+      <div class="article">
+          {% for image in article.images.all %}
+            <img class="img_content" src="{{ image.image.url }}" alt="{{ image.name }}">
+          {% endfor %}
+        <div class="text-container">
+          <p class="txt_content" align="justify">{{ article.text|safe|linebreaks }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

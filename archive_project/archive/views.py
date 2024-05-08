@@ -85,7 +85,22 @@ def reading_room(request):
     return render(request, 'archive/pages/reading_room.html', context)
 
 
+def exhibitions(request):
+    context = {}
+    exhibitions = Post.objects.filter(type_post='exhibitions')
 
+    context['exhibitions'] = exhibitions
+
+    return render(request, 'archive/pages/exhibitions.html', context)
+
+
+def articles(request):
+    context = {}
+    articles = Post.objects.filter(type_post='article')
+
+    context['articles'] = articles
+
+    return render(request, 'archive/pages/articles.html', context)
 
 
 

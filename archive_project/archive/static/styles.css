@@ -111,3 +111,46 @@ h3 {
 .text-container {
   flex: 1; /* Текст будет растягиваться на всю доступную ширину */
 }
+
+#content_vistavki {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.exhibition {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.exhibition h4 {
+  color: #333;
+}
+
+.exhibition p {
+  color: #666;
+}
+
+.txt_content {
+
+    font-size: 14px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+.img_content {
+    float: left;
+    padding-left: 6px;
+    padding-top: 0px;
+    padding-right: 10px;
+    padding-bottom: 8px;
+}

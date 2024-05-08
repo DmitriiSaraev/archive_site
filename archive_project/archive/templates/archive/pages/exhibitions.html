@@ -1,0 +1,20 @@
+{% extends 'archive/base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Выставки. Об МКУ ТГО "Управление архивами"</title>
+{% endblock %}
+
+{% block content %}
+  <div id="content_vistavki" >
+    <h3>Выставки</h3>
+    {% for exhibition in exhibitions %}
+      <div class="exhibition">
+        <h4>{{ exhibition.title }}</h4>
+
+        <p>{{ exhibition.text|safe }}</p>
+      </div>
+      <br>
+    {% endfor %}
+  </div>
+{% endblock %}
