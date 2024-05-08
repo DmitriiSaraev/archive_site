@@ -1,25 +1,25 @@
 {% load static %}
 <div id="header">
   <ul>
-    <li><a class="active" href="{% url 'archive:index' %}">Главная</a>
+    <li><a href="{% url 'archive:index' %}">Главная</a>
     </li>
     <li><a href="{% url 'archive:news' %}">Новости архива</a>
     </li>
     <li><a href="{% url 'archive:about' %}">Об архиве</a>
     </li>
-    <li><a href="http://talica-arkhi-rf.1gb.ru/Zaprosi.html">Запросы</a></li>
+    <li><a href="{% url 'archive:querys' %}">Запросы</a></li>
     <li><a
-      href="http://talica-arkhi-rf.1gb.ru/Organizaziyam.html">Организациям</a>
+      href="{% url 'archive:organizaziyam' %}">Организациям</a>
     </li>
-    <li><a href="http://talica-arkhi-rf.1gb.ru/Kalendar.html">Календарь
+    <li><a href="{% url 'archive:kalendar' %}">Календарь
       памятных дат</a></li>
-    <li><a href="http://talica-arkhi-rf.1gb.ru/reding_room.html">Читальный
+    <li><a href="{% url 'archive:reading_room' %}">Читальный
       зал</a></li>
-    <li><a href="http://talica-arkhi-rf.1gb.ru/Vistavki.html">Выставки</a>
+    <li><a href="{% url 'archive:exhibitions' %}">Выставки</a>
     </li>
-    <li><a href="http://talica-arkhi-rf.1gb.ru/stateiki.html">Статьи</a></li>
-    <li><a href="http://talica-arkhi-rf.1gb.ru/Docs.html">Документы</a></li>
-    <li><a href="http://talica-arkhi-rf.1gb.ru/Kontakti.html">Контакты</a>
+    <li><a href="{% url 'archive:articles' %}">Статьи</a></li>
+    <li><a href="{% url 'archive:docs' %}">Документы</a></li>
+    <li><a href="{% url 'archive:contacts' %}">Контакты</a>
     </li>
   </ul>
 </div>

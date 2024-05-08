@@ -14,7 +14,9 @@ class Post(models.Model):
         ('reading_room', 'Читальный зал'),
         ('requests_t', 'запросы тематические'),
         ('requests_sp', 'запросы соц. пр.'),
-        ('external_reference', 'внешние ссылки')
+        ('external_reference', 'внешние ссылки'),
+        ('sotrydniki', 'Сотрудники архива'),
+        ('sidebar', 'Сайдбар'),
     ]
 
     name = models.CharField(max_length=200,

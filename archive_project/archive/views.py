@@ -128,6 +128,16 @@ def contacts(request):
     return render(request, 'archive/pages/contacts.html', context)
 
 
+def sotrydniki(request):
+    context = {}
+    sotrydniki = Post.objects.filter(type_post='sotrydniki').first()
+    context['sotrydniki'] = sotrydniki
+
+    return render(request, 'archive/pages/sotrydniki.html', context)
+
+
+
+
 
 
 

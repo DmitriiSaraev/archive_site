@@ -16,5 +16,6 @@ urlpatterns = [
     path('exhibitions/', views.exhibitions, name='exhibitions'),
     path('articles/', views.articles, name='articles'),
     path('docs/', views.docs, name='docs'),
-    path('contacts/', views.contacts, name='contacts')
+    path('contacts/', views.contacts, name='contacts'),
+    path('sotrydniki/', views.sotrydniki, name='sotrydniki'),
 ]
