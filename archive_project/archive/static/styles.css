@@ -40,16 +40,18 @@ header, footer {
     font-weight: bold;
 }
 
-.sidebar {
-    width: 25%;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
+
 
 .main-content {
     float: left;
     width: 75%;
     padding: 20px;
+    background: #f2f2f2;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-left: 10px;
 }
 
 footer {
@@ -68,7 +70,8 @@ footer {
 .flex-container {
     flex: 1;
     display: flex;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 
@@ -148,16 +151,48 @@ h3 {
     padding-bottom: 8px;
 }
 
-#sait_bar {
-    float: left;
-    margin-left: 5px;
-    margin-top: 15px;
-    margin-bottom: 100px;
-    background: #e3e3e3;
-    width: 250px;
+.sidebar {
+    width: 25%;
+    background-color: #f2f2f2;
+    padding: 10px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
 }
 
+#sait_bar {
+    float: left;
+    margin-left: 3px;
+    margin-top: 15px;
+    margin-bottom: 100px;
+    background: #e3e3e3;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.txt_bar {
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px 5px 5px 5px;
+    border: solid #aaaaaa 2px;
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: Times New Roman;
+    font-size: 20px;
+    list-style-type: none;
+}
+
+
+
+.txt_bar a {
+    color: #333;
+    text-decoration: none;
+}

@@ -1,8 +1,7 @@
 {% load static %}
 
-<div id="sait_bar">
-  <ul>
-
+{#<div id="sait_bar">#}
+  <ul class="txt_bar">
     <li><a href="{% url 'archive:sotrydniki' %}">Сотрудники
       архива</a></li>
     <li><a href="http://talica-arkhi-rf.1gb.ru/spisokfondov.html">Список
@@ -11,33 +10,16 @@
       мероприятия</a></li>
     <li><a href="http://talica-arkhi-rf.1gb.ru/antiterrorizm.html">Антитеррористическая
       защищенность</a></li>
-
   </ul>
-  {% for post in sidebar %}
-    <p>{{ post.title }}</p>
-  {% endfor %}
 
-  <p class="txt_bar">Предоставление государственных услуг в электронной форме
-    <br><a href="https://www.gosuslugi.ru/">Подробнее</a>
-  </p>
-  <p class="txt_bar">
-    <a href="https://www.gosuslugi.ru/">Портал Государственных услуг</a>
-    <a href="https://www.gosuslugi.ru/"><img src="img/logo_gosyslygi.jpg"></a>
-  </p>
-  <p class="txt_bar">
-    <a href="http://atalica.ru/">Сайт Администрации
-      Талицкого городского округа</a>
-    <a href="http://atalica.ru/"><img src="img/sait_administracii.jpg"></a>
-  </p>
-  <p class="txt_bar">
-    <a href="http://uprarchives.midural.ru/">Управление архивам Свердловской
-      области</a>
-    <a href="http://uprarchives.midural.ru/"><img src="img/ypravlenie.jpg"></a>
-  </p>
-  <p class="txt_bar">
-    <a href="http://xn----7sbbah9aya9ad3as8e.xn--p1ai/">Архивы Свердловской
-      области</a><br>
-    <a href="http://xn----7sbbah9aya9ad3as8e.xn--p1ai/"><img
-      src="img/arhivi.jpg"></a>
-  </p>
-</div>
+  {% for post in sidebar %}
+    <div class="txt_bar">
+    <p><a>{{ post.title }}</a>
+
+    </p>
+    {% for img in post.images.all %}
+      <a><img src="{{ img.image.url }}" alt="{{ img.name }}"></a>
+    {% endfor %}
+    </div>
+  {% endfor %}
+{#</div>#}
