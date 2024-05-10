@@ -1,4 +1,9 @@
 from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+from PIL import Image
+from io import BytesIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 
 class Post(models.Model):
@@ -150,4 +155,59 @@ class ImageForPost(models.Model):
                               upload_to='archive',
                               verbose_name='Изображение')
 
+    def save(self, *args, **kwargs):
+        if self.image:
+            max_width = 700
+            max_height = 520
 
+            # Открыть изображение с помощью Pillow
+            img = Image.open(self.image)
+
+            # Подгонка размера изображения
+            img.thumbnail((max_width, max_height), Image.LANCZOS)
+
+            # Получение новых размеров изображения
+            width, height = img.size
+
+            # Заполнение недостающих областей фоном
+            background = Image.new('RGB', (max_width, max_height),
+                                   (255, 255, 255))
+            offset = ((max_width - width) // 2, (max_height - height) // 2)
+            background.paste(img, offset)
+
+            # Сохранение обработанного изображения
+            img_io = BytesIO()
+            background.save(img_io, format='JPEG')
+            self.image.file = InMemoryUploadedFile(
+                img_io, None, self.image.name, 'image/jpeg', img_io.tell(),
+                None
+            )
+
+        super().save(*args, **kwargs)
+
+# @receiver(pre_save, sender=ImageForPost)
+# def process_image(sender, instance, **kwargs):
+#     image = instance.image
+#     max_width = 700
+#     max_height = 520
+#
+#     # Открыть изображение с помощью Pillow
+#     img = Image.open(image)
+#
+#     # Подгонка размера изображения
+#     img.thumbnail((max_width, max_height), Image.LANCZOS)
+#
+#     # Получение новых размеров изображения
+#     width, height = img.size
+#
+#     # Заполнение недостающих областей фоном
+#     background = Image.new('RGB', (max_width, max_height), (255, 255, 255))
+#     offset = ((max_width - width) // 2, (max_height - height) // 2)
+#     background.paste(img, offset)
+#
+#     # Сохранение обработанного изображения
+#     img_io = BytesIO()
+#     background.save(img_io, format='JPEG')
+#     image.file = InMemoryUploadedFile(
+#         img_io, None, instance.image.name, 'image/jpeg', img_io.tell(), None
+#     )

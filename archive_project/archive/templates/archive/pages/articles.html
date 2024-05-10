@@ -11,14 +11,48 @@
     {% for article in articles %}
       <h3>{{ article.title }}</h3>
       <div class="article">
-          {% for image in article.images.all %}
-            <img class="img_content" src="{{ image.image.url }}" alt="{{ image.name }}">
-          {% endfor %}
         <div class="text-container">
           <p class="txt_content" align="justify">{{ article.text|safe|linebreaks }}</p>
         </div>
+        {% if article.images.all %}
+          <div class="carousel">
+            <button class="arrow prev">⇦</button>
+            <div class="gallery">
+              <ul>
+                {% for img in article.images.all %}
+                  <li><img src="{{ img.image.url }}"></li>
+                {% endfor %}
+              </ul>
+            </div>
+            <button class="arrow next">⇨</button>
+          </div>
+        {% endif %}
       </div>
     {% endfor %}
   </div>
 
+  <script>
+    document.querySelectorAll('.carousel').forEach(function(carousel) {
+      let width = 750;
+      let count = 1;
+
+      let list = carousel.querySelector('.gallery ul');
+      let listElems = carousel.querySelectorAll('.gallery ul li');
+
+      let position = 0;
+
+      carousel.querySelector('.prev').onclick = function() {
+        position += width * count;
+        position = Math.min(position, 0);
+        list.style.marginLeft = position + 'px';
+      };
+
+      carousel.querySelector('.next').onclick = function() {
+        position -= width * count;
+        position = Math.max(position, -width * (listElems.length - count));
+        list.style.marginLeft = position + 'px';
+      };
+    });
+  </script>
 {% endblock %}
+
