@@ -6,8 +6,11 @@
 {% endblock %}
 
 {% block content %}
-
-  <h5><a href="{{ main_link.url }}" class="centered-link">{{ main_link.name }}</a></h5><br>
+  {% if main_link %}
+    <h5><a href="{{ main_link.url }}" class="centered-link">{{ main_link.name }}</a></h5><br>
+  {% else %}
+    <h5 class="centered-link">Заголовок главной ссылки с типом "main"</h5>
+  {% endif %}
 
   <h5 style="text-align: center">{{ main_post.title }}</h5>
   <p>{{ main_post.text|safe }}</p>
