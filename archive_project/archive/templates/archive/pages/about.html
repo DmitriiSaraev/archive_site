@@ -6,6 +6,11 @@
 {% endblock %}
 
 {% block content %}
-  <h3>{{ about_archive.title }}</h3>
-  <p>{{ about_archive.text|safe|linebreaks }}</p>
+  {% if about_archive %}
+    <h3>{{ about_archive.title }}</h3>
+    <p>{{ about_archive.text|safe|linebreaks }}</p>
+  {% else %}
+    <h3>Здесь размещается информация об архиве</h3>
+    <p>Для вывода информации создайте пост с типом "Об архиве"</p>
+  {% endif %}
 {% endblock %}
