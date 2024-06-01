@@ -47,6 +47,8 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['created']
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Посты'
 
     def __str__(self):
         return f'Пост {self.name}, тип {self.type_post}'
@@ -66,6 +68,10 @@ class Contacts(models.Model):
     telephone = models.CharField(max_length=50,
                                  verbose_name='Телефон')
     email = models.EmailField()
+
+    class Meta:
+        verbose_name = 'Контакт'
+        verbose_name_plural = 'Контакты'
 
     def __str__(self):
         return f'Контакты {self.name}'
@@ -107,6 +113,10 @@ class OperatingMode(models.Model):
                             null=True,
                             verbose_name='Текст')
 
+    class Meta:
+        verbose_name = 'Режим работы'
+        verbose_name_plural = 'Режимы работы'
+
     def __str__(self):
         return 'Режим работы архива'
 
@@ -122,6 +132,10 @@ class Link(models.Model):
                                  verbose_name='Тип ссылки')
     url = models.URLField(verbose_name='Адрес ссылки',
                           default=None)
+
+    class Meta:
+        verbose_name = 'Ссылка'
+        verbose_name_plural = 'Ссылки'
 
     def __str__(self):
         return f'Сслыка на {self.name}'
@@ -139,6 +153,8 @@ class ListBooks(models.Model):
 
     class Meta:
         ordering = ['numb']
+        verbose_name = 'Список книг'
+        verbose_name_plural = 'Списки книг'
 
     def __str__(self):
         return f'Книга из чит. зала номер {self.numb}'
@@ -154,6 +170,10 @@ class ImageForPost(models.Model):
                               null=True,
                               upload_to='archive',
                               verbose_name='Изображение')
+
+    class Meta:
+        verbose_name = 'Фото для поста'
+        verbose_name_plural = 'Фотографии для поста'
 
     def save(self, *args, **kwargs):
         if self.image:
