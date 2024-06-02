@@ -1,6 +1,9 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
+
 from archive.models import (Post, Contacts, OperatingMode, Link,
                             ListBooks, ImageForPost)
+from services.paginator import get_paginator_pages
 
 
 def index(request):
@@ -25,7 +28,11 @@ def index(request):
 def news(request):
     context = {}
 
-    news = Post.objects.filter(type_post='news').select_related()
+    news_list = Post.objects.filter(type_post='news').select_related()
+
+    page_number = request.GET.get('page', 1)
+    news = get_paginator_pages(news_list, page_number)
+
     context['news'] = news
 
     return render(request, 'archive/pages/news.html', context)
@@ -96,7 +103,10 @@ def exhibitions(request):
 
 def articles(request):
     context = {}
-    articles = Post.objects.filter(type_post='article')
+    articles_list = Post.objects.filter(type_post='article')
+
+    page_number = request.GET.get('page', 1)
+    articles = get_paginator_pages(articles_list, page_number)
 
     context['articles'] = articles
 

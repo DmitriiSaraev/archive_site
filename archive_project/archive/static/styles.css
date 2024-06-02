@@ -272,3 +272,10 @@ body {
 .gallery li {
   display: inline-block;
 }
+
+/* pagination */
+.pagination {
+    margin:40px 0;
+    font-weight:bold;
+    justify-content: center;
+}
