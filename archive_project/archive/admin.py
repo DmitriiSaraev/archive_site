@@ -14,6 +14,7 @@ class PostAdmin(admin.ModelAdmin):
                     'created', 'text_link', 'link']
     prepopulated_fields = {'slug': ('name',)}
     inlines = [ImagePostInLine]
+    list_filter = ['type_post']
 
 
 @admin.register(models.Contacts)
